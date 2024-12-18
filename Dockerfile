@@ -10,8 +10,9 @@ ENV VERIFY_SSL='False'
 
 WORKDIR /app
 
-RUN pip install --no-cache-dir -r requirements.txt
-
 COPY src/ ./src/
+COPY requirements.txt ./
+
+RUN pip install --no-cache-dir -r requirements.txt
 
 CMD ["python", "./src/app.py"]
